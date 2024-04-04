@@ -65,7 +65,16 @@ freeze_layers(model)
 
 # Modify the final layer
 num_ftrs = model.fc.in_features
-model.fc = nn.Linear(num_ftrs, 10)
+
+model.fc = nn.Linear(num_ftrs, 20) 
+
+# V2 change: Add dropout for regularization
+model.fc = nn.Sequential(
+    nn.Linear(num_ftrs, 512),
+    nn.ReLU(),
+    nn.Dropout(0.5),            
+    nn.Linear(512, 10)
+)
 
 # Move the model to the device
 model = model.to(device)
