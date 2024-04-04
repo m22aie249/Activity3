@@ -65,9 +65,7 @@ freeze_layers(model)
 
 # Modify the final layer
 num_ftrs = model.fc.in_features
-
-# V1 Change: Output layer with 20 units instead of 10
-model.fc = nn.Linear(num_ftrs, 20) 
+model.fc = nn.Linear(num_ftrs, 10)
 
 # Move the model to the device
 model = model.to(device)
