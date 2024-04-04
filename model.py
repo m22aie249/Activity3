@@ -6,6 +6,8 @@ from torchvision import datasets, models, transforms
 import matplotlib.pyplot as plt
 import numpy as np
 
+print("Adding debug to roll fwd")
+
 # Check if CUDA is available and set the device accordingly
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
